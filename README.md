@@ -1,5 +1,5 @@
-<h1>CodeShare <h3><span>Ideal for Online Interviewing of Developers as well as Learning to code from Friends.</span></h3></h1>
 <a href="https://hack36.com"> <img src="http://bit.ly/BuiltAtHack36" height=20px> </a>
+<h1>CodeShare <h3><span>Ideal for Online Interviewing of Developers as well as Learning to code from Friends.</span></h3></h1>
 
 
 ## Introduction:
