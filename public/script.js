@@ -3,7 +3,8 @@ console.log(ROOM_ID);
 console.log(document.getElementById('user').innerText);
 console.log(editor.getValue())
 console.log(USER);
-
+var state_others=-1;
+var state_mine=0;
 var language;
 document.getElementById('editor').style.fontSize='20px';
 
@@ -173,6 +174,78 @@ function closeMeeting()
   socket.emit('disconnect');
   window.location.href = "http://localhost:8000";
   
+
+}
+function downChat()
+{
+    
+     document.getElementById('videoTab').style.top="93%";
+     document.getElementById('audio_handler').style.top="94.58%";
+     document.getElementById('video_handler').style.top="94.58%";
+     document.getElementById('down_handler').style.top="94.58%";
+     document.getElementById('up_handler').style.visibility="hidden";
+     document.getElementById('up_handler').style.top="94.58%";
+     setTimeout(function() {
+      document.getElementById('down_handler').style.visibility="hidden";
+
+    }, 500);  
+    setTimeout(function() {
+      document.getElementById('up_handler').style.visibility="visible";
+           
+    }, 500);  
+          
+     
+     document.getElementById('video-grid1').style.visibility="hidden";
+     document.getElementById('video-grid2').style.visibility="hidden";
+     document.getElementById('default_image').style.visibility="hidden";
+     document.getElementById('default_image_other').style.visibility="hidden";
+     document.getElementById('default_image_others').style.visibility="hidden";
+     
+     
+
+
+     
+
+}
+function upChat()
+{
+    
+     document.getElementById('videoTab').style.top="73%";
+     document.getElementById('audio_handler').style.top="74.58%";
+     document.getElementById('video_handler').style.top="74.58%";
+     document.getElementById('up_handler').style.top="74.58%";
+     document.getElementById('down_handler').style.visibility="hidden";
+     document.getElementById('down_handler').style.top="74.58%";
+     
+     
+    setTimeout(function() {
+      document.getElementById('up_handler').style.visibility="hidden";
+           
+    }, 500);  
+    
+     setTimeout(function() {
+      document.getElementById('down_handler').style.visibility="visible";
+           
+    }, 500);  
+     setTimeout(function(){
+       if(state_mine==0)
+      document.getElementById('video-grid1').style.visibility="visible";
+      else
+      document.getElementById('default_image').style.visibility="visible";
+      if(state_others==-1)
+      {
+        document.getElementById('default_image_others').style.visibility="visible";
+   
+      }
+      else if(state_others==0)
+      document.getElementById('video-grid2').style.visibility="visible";
+      else
+      document.getElementById('default_image_other').style.visibility="visible";
+},500);
+     
+
+
+     
 
 }
 
@@ -489,12 +562,14 @@ var myid;
       myVideo.style.display="none";
       document.getElementById('video_handler').src="/camera_off.png";  
       document.getElementById('default_image').style.visibility="visible";
+      state_mine=1;
    }
    else
    {
     myVideo.style.display="block";
     document.getElementById('video_handler').src="/camera_on.png";
     document.getElementById('default_image').style.visibility="hidden";
+    state_mine=0;
    }
     my_video_visible=!my_video_visible;
   
@@ -508,13 +583,15 @@ var myid;
      console.log(videoGrid2);
      document.getElementById('othersVideo').video="true";
      document.getElementById('default_image_other').style.visibility="hidden";
+     state_others=0;
    }
    else
    {
      console.log(videoGrid2);
      document.getElementById('othersVideo').video="false";
      document.getElementById('default_image_other').style.visibility="visible";
-   }
+   state_others=1;
+    }
  })
 
  function audio()
@@ -592,6 +669,7 @@ socket.on('peerId',(id)=>{
 socket.on('user-disconnected',userId =>{
     if(peers[userId])peers[userId].close()
     document.getElementById('default_image_other').style.visibility="hidden";   
+    document.getElementById('default_image_others').style.visibility="visible"; 
  
 
 })
@@ -613,6 +691,8 @@ socket.on('name',(name)=>{
   console.log(name);
   othersName=name;
   document.getElementById('othersname').textContent=name;
+  document.getElementById('default_image_others').style.visibility="hidden";
+  state_others=0;
   socket.emit('othersname',Name);
 
 })
@@ -629,6 +709,8 @@ else
 socket.on('othersname',(name)=>{
   othersName=name;
   document.getElementById('othersname').textContent=name;
+  document.getElementById('default_image_others').style.visibility="hidden";
+  state_others=0;
   console.log(name);
 })
 

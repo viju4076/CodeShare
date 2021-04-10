@@ -237,6 +237,16 @@ span.red{
 #video-grid{
     position:relative;
 }
+#videoTab{
+    z-index: 10000;
+     position: fixed; 
+     left:59% ;top:73%;
+     height: 10px;
+     width: 13%;
+     background-color: black;
+     font-weight: 300;
+     transition: 500ms;
+}
 #video-grid1{
     display: flex;
     position: fixed;
@@ -244,13 +254,14 @@ span.red{
     width:20%;
     left: 67.5%;
     top:90%;
-   
+    transition: 300ms;
     z-index: 4999;
     display: grid;
     /* grid-template-columns: repeat(auto-fill, 200px); */
  /* grid-auto-rows: 100px; */
 }
 #video-grid2{
+    border-top: 10px;
     display: flex;
     position:fixed;
     width:48%;
@@ -258,22 +269,52 @@ span.red{
     top:78%;
     display: grid;
     flex-direction: column;
+    transition: 300ms;
     /* grid-template-columns: 4fr 4fr; */
     /* grid-template-rows: repeat(4, 3fr); */
  /* grid-auto-rows: 100px; */
 }
 #video_handler{
     position: fixed;
+    left: 67%;
+    top:74.58%;
+    margin-left: 12px;
     z-index: 60000;
     height: 20px; 
     width: 20px;
+    transition: 500ms;
 }
 #audio_handler{
+    margin-left: 12px;
     position: fixed;
+    left: 69%;
+    top:74.58%;
     z-index: 60000;
+    transition: 500ms;
     height: 20px; 
     width: 20px;
     left: 69%;
+}
+#down_handler{
+    margin-left: 12px;
+    position: fixed;
+    top:74.58%;
+    z-index: 60000;
+    transition: 500ms;
+    height: 20px; 
+    width: 20px;
+    left: 71%;
+}
+#up_handler{
+    margin-left: 12px;
+    position: fixed;
+    top:94.58%;
+    z-index: 60000;
+   visibility: hidden;
+    height: 20px; 
+    width: 20px;
+    transition: 500ms;
+    left: 71%;
 }
 #default_image{
     visibility:hidden;
@@ -284,6 +325,13 @@ span.red{
 }
 #default_image_other{
     visibility: hidden;
+    position: fixed;
+    z-index: 50001;
+    height: 21%;
+    width: 14.4%;
+}
+#default_image_others{
+    
     position: fixed;
     z-index: 50001;
     height: 21%;
