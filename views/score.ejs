@@ -2,9 +2,7 @@
 <link rel="stylesheet" href="/score.css">
 <link rel="stylesheet" href="/styles.css">
 <div id="score-pannel-1"> 
-    <ul class="nav nav-tabs"style="background-color:rgba(0, 0, 0, 0.384);height: 100% color=white; padding-right: 3px;">
-        <li class="active"><a data-toggle="tab" href="#Feedback">ScoreCard</a></li>
-    </ul>
+
 <button class="accordion">Code Quality          <%- include('rating.ejs',{variable: 'first'}) %>
 </button>
 
@@ -40,7 +38,8 @@
 </div>
 
 
-
+<button type="button" class="btn btn-primary btn-lg btn-block" id="submit-i" onclick="generatePdf()">Download Report</button>
+     
 
 
 

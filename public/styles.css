@@ -14,9 +14,9 @@
 }
 
 .message-area {
-	height: 120px;
+	height: 400px;
 	padding: 3px;
-	max-height:120px;
+	max-height:400px;
 	overflow: auto;
 	background-color:  rgb(5, 5, 5);
 }
