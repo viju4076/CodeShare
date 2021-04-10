@@ -20,9 +20,6 @@
 	overflow: auto;
 	background-color:  rgb(5, 5, 5);
 }
-::-webkit-scrollbar { 
-    display: none; 
-}
 .typing-area {
 	margin-top: 4px;
 	padding: 4px;

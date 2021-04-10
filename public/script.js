@@ -38,7 +38,18 @@ document.getElementById('language').click(function(event){
        
 });
 
+
+
+window.onblur= function warn() {
+  if(user==='Candidate')
+  {
+    console.log('cheating')
+  socket.emit('cheating',Name);
+  }
+}
 //for showing question categories to interviewer only.
+
+
 
 
 function setLanguage(language)
@@ -216,6 +227,11 @@ document.addEventListener('keyup', function(event) {
 //         console.log("koi connect hua hai");
 //     })
 
+socket.on('cheating',cheater=>{
+  console.log('caught cheating');
+  swal(cheater, "opened a new tab", "warning");
+})
+
 socket.on('editor-change', code=>{
     editor.setValue(code.text);
     document.getSelection().removeAllRanges();
@@ -359,7 +375,7 @@ socket.on('add_ques_tab_event',function(){
        '</div>'+
        '<div>'+
            '<p>'+
-               '<pre id="quesSec'+current_idx+'">'+
+               '<pre id="quesSec'+current_idx+'" style="max-height: 780px; overflow-y: scroll;">'+
                'You can add a question here'+
                '</pre>'+     
            '</p>'+
