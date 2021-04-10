@@ -414,7 +414,8 @@ socket.on('message-from-others', function(data){
 socket.on('previous_chats',data=>{
   var html;
   for(var i=0;i<data.length;i++)
-   { html = '<div class="message-box others-message-box">' +
+   {  
+      html = '<div class="message-box others-message-box">' +
         '<div class="message others-message"> <strong>'+data[i].user+':</strong> ' + data[i].message + ' </div>' +
         '<div class="separator"></div>' +
       '</div>';

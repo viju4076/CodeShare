@@ -17,7 +17,7 @@
       </a>
       </li>
     </ul>
-    <ul class="nav navbar-nav navbar-right ">
+    <ul class="nav navbar-nav navbar-right " >
     
       <li>
         <a href="#" class="navbar-toggler-right" id='othersname' style="color:red; font-weight: 300; font-size: x-large; margin-left: 10px ;margin-right: 10px;  " >
@@ -78,6 +78,7 @@
       <div class="modal-header">
         <h4 class="modal-title" style="font-weight: bold;">Interview</h4>
         <button type="button"  class="close" data-dismiss="modal"></button>
+         
       </div>
 
       <!-- Modal body -->
@@ -145,13 +146,22 @@
     <div class="col-sm-3" >
      
         <%- include('video.ejs') %>
-        <%- include('chat.ejs') %>
+        
      
       
     </div>
      <div class="col-sm-3">
+      <div class="score-pannel">
        <%- include('score.ejs') %>
-       <%- include('note.ejs') %>
+      
+      <%- include('note.ejs') %>
+      <%- include('chat.ejs') %>
+     <button type="button" class="btn btn-primary btn-lg btn-block" id="submit-i" onclick="generatePdf()">Download Report</button>
+      <button type="button" class="btn btn-primary btn-lg btn-block" id="submit-c" onclick="generateNote()">Download Notes</button>
+  
+    </div>
+      
+      </ul>
        
      </div>
     

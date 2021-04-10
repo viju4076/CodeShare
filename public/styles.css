@@ -34,6 +34,8 @@
 	height: 50%;
 	resize: none;
 	padding: 3px;
+	background-color:rgb(5, 5, 5) ;
+	color: white;
 }
 
 .send-button {
