@@ -39,7 +39,18 @@ document.getElementById('language').click(function(event){
        
 });
 
+
+
+window.onblur= function warn() {
+  if(user==='Candidate')
+  {
+    console.log('cheating')
+  socket.emit('cheating',Name);
+  }
+}
 //for showing question categories to interviewer only.
+
+
 
 
 function setLanguage(language)
@@ -289,6 +300,11 @@ document.addEventListener('keyup', function(event) {
 //         console.log("koi connect hua hai");
 //     })
 
+socket.on('cheating',cheater=>{
+  console.log('caught cheating');
+  swal(cheater, "opened a new tab", "warning");
+})
+
 socket.on('editor-change', code=>{
     editor.setValue(code.text);
     document.getSelection().removeAllRanges();
@@ -432,7 +448,7 @@ socket.on('add_ques_tab_event',function(){
        '</div>'+
        '<div>'+
            '<p>'+
-               '<pre id="quesSec'+current_idx+'">'+
+               '<pre id="quesSec'+current_idx+'" style="max-height: 780px; overflow-y: scroll;">'+
                'You can add a question here'+
                '</pre>'+     
            '</p>'+
@@ -487,7 +503,8 @@ socket.on('message-from-others', function(data){
 socket.on('previous_chats',data=>{
   var html;
   for(var i=0;i<data.length;i++)
-   { html = '<div class="message-box others-message-box">' +
+   {  
+      html = '<div class="message-box others-message-box">' +
         '<div class="message others-message"> <strong>'+data[i].user+':</strong> ' + data[i].message + ' </div>' +
         '<div class="separator"></div>' +
       '</div>';

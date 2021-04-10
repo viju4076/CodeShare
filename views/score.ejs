@@ -1,38 +1,47 @@
 
 <link rel="stylesheet" href="/score.css">
-<div id="score-pannel">
-   
-<button class="accordion">Code Quality</button>
+<link rel="stylesheet" href="/styles.css">
+<div id="score-pannel-1"> 
+    <ul class="nav nav-tabs"style="background-color:rgba(0, 0, 0, 0.384);height: 100% color=white; padding-right: 3px;">
+        <li class="active"><a data-toggle="tab" href="#Feedback">ScoreCard</a></li>
+    </ul>
+<button class="accordion">Code Quality          <%- include('rating.ejs',{variable: 'first'}) %>
+</button>
 
 <div class="panel">
-    <%- include('rating.ejs',{variable: 'first'}) %>
+
+        
     <textarea  class="detail form-control rounded-0 note-area" id="detail_quality" placeholder="Enter your feedback here" row=1></textarea>
     
 </div>
 
-<button class="accordion">Problem Solving </button>
+<button class="accordion">Problem Solving  <%- include('rating.ejs',{variable: 'second'}) %></button>
 <div class="panel">
    
-    <%- include('rating.ejs',{variable: 'second'}) %>
+    
     <textarea  class="detail form-control rounded-0 note-area" id="detail_solving" placeholder="Enter your feedback here" row=1></textarea>
     
 </div>
 
-<button class="accordion">Language Proficiency</button>
+<button class="accordion">Language Proficiency  <%- include('rating.ejs',{variable: 'third'}) %></button>
 <div class="panel">
    
-    <%- include('rating.ejs',{variable: 'third'}) %>
+    
     <textarea class="detail form-control rounded-0 note-area"  id="detail_proficiency" placeholder="Enter your feedback here" row=1></textarea>
     
 </div>
 
-<button class="accordion">Technical Communication</button>
+<button class="accordion">Technical Communication  <%- include('rating.ejs',{variable: 'fourth'}) %> </button>
 <div class="panel">
     
-    <%- include('rating.ejs',{variable: 'fourth'}) %>
+    
     <textarea class="detail form-control rounded-0 note-area" id="detail_commnunication" placeholder="Enter your feedback here"row=1></textarea>
    
 </div>
 
-<button type="button" class="btn btn-primary"id="submit" onclick="generatePdf()">Download</button>
+
+
+
+
+
 </div>

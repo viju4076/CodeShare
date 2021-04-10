@@ -2,13 +2,13 @@ body{
     background-color: rgba(0, 0, 0, 0.822);
     /* cursor:url(http://www.javascriptkit.com/dhtmltutors/cursor-hand.gif), auto; */
     cursor: pointer;
+    overflow: hidden;
 }
 
 #heading{
     text-align: center;
     font-size: 50px;
     /* font-style: oblique; */
-
 }
 
 

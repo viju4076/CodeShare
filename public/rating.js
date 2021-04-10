@@ -112,9 +112,16 @@ console.log(star1.length);
 
 
 console.log(USER);
+
 if(USER=="Candidate")
 {
- document.getElementById("score-pannel").style.display="none";
+ document.getElementById("score-pannel-1").style.display="none";
+ document.getElementById("submit-i").style.display="none";
+}
+if(USER!="Candidate")
+{
+  document.getElementById("submit-c").style.display="none";
+
 }
 var acc = document.getElementsByClassName("accordion");
 var i;
@@ -169,7 +176,8 @@ var text4='TECHNICAL COMMUNICATION:- '+detail_commnunication;
 doc.text(text4,20,90);
 rate_text=rate4+' out of 5';
 doc.text(rate_text,150,95);
-doc.save("output.pdf");
+console.log(name);
+doc.save(output.pdf);
 }
 
 /****************************************************************score section end ************************************/

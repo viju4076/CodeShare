@@ -206,6 +206,10 @@ io.on('connection',socket=>{
              socket.on('change_i',(i)=>{
                  socket.to(roomId).emit('change_i',i);
              })
+
+             socket.on('cheating',cheater=>{
+                socket.broadcast.to(roomId).emit('cheating',cheater);
+             })
              
             socket.on('editor-change',(code)=>{
                 
@@ -264,6 +268,7 @@ function (error, response, body) {
 
 
 let port=process.env.PORT;
+console.log(port);
 if(port==null||port=="")
 {
   port=8000;
