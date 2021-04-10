@@ -117,6 +117,7 @@ if(USER=="Candidate")
 {
  document.getElementById("score-pannel-1").style.display="none";
  document.getElementById("submit-i").style.display="none";
+ document.getElementById("Feedback").style.display="none";
 }
 if(USER!="Candidate")
 {

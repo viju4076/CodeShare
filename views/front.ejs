@@ -113,16 +113,16 @@
     <div class="col-sm-6" style="background-color:rgba(0, 0, 0, 0.384)">
     
         <div>
-            <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" href="#compiler">Compiler</a></li>
-                <li><a data-toggle="tab" href="#whiteboard">Whiteboard</a></li>
-                <li><a data-toggle="tab" href="#screen-share">Screen-Share</a></li>
-            </ul>
+            
+          <ul class="nav nav-tabs"style="background-color:rgba(0, 0, 0, 0.384);height: 100% color=white; padding-right: 3px;">
+            <li class="active"><a data-toggle="tab" href="#Feedback">ScoreCard</a></li>
+            <li><a data-toggle="tab" href="#chat">Chat</a></li>
+          </ul>
               
                 
             
             
-            <div class="tab-content">
+          <div class="tab-content">
                 <div id="compiler" class="tab-pane fade in active">
                  
                     <%- include('compiler.ejs') %>
@@ -142,7 +142,7 @@
                 
           </div> 
         
-    </div>
+       </div>
     <div class="col-sm-3" >
      
         <%- include('video.ejs') %>
@@ -151,14 +151,37 @@
       
     </div>
      <div class="col-sm-3">
-      <div class="score-pannel">
-       <%- include('score.ejs') %>
+     
+        <ul class="nav nav-tabs"style="background-color:rgba(0, 0, 0, 0.384);height: 100% color=white; padding-right: 3px;">
+          <% if(user==="Interviewer"){ %>
+          <li class="active"><a data-toggle="tab" href="#Feedback">ScoreCard</a></li>
+          <%}else { %>
+             <li class="active"><a data-toggle="tab" href="#Notes">Note</a></li>
+             <%} %>
+          <li><a data-toggle="tab" href="#score-pannel">Chat</a></li>
+          
+        </ul>
+      <div class="tab-content">
+
+
+        <div id="Feedback" class="tab-pane fade in active">
+        
+        <%- include('score.ejs') %>
+         </div>
+         
+         <div id="score-pannel" class="tab-pane fade ">
+         <%- include('chat.ejs') %>
+        </div>
       
-      <%- include('note.ejs') %>
-      <%- include('chat.ejs') %>
-     <button type="button" class="btn btn-primary btn-lg btn-block" id="submit-i" onclick="generatePdf()">Download Report</button>
-      <button type="button" class="btn btn-primary btn-lg btn-block" id="submit-c" onclick="generateNote()">Download Notes</button>
-  
+        <div id="Notes" class="tab-pane fade in active">
+      
+         <%- include('note.ejs') %>
+        </div>
+      
+      
+    </div>
+      
+     
     </div>
       
       </ul>
