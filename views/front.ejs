@@ -85,7 +85,12 @@
       <div class="modal-body">
        
         <span id="modal_data" style="color: red;">
+          <%if(user==="Interviewer"){%>
         Do you want to end the interview?
+        <%}else{%>
+         Do you want to leave the interview?
+         <%}%> 
+
         </span>
       </div>
 
@@ -156,7 +161,7 @@
       
       <%- include('note.ejs') %>
       <%- include('chat.ejs') %>
-     <button type="button" class="btn btn-primary btn-lg btn-block" id="submit-i" onclick="generatePdf()">Download Report</button>
+     <!-- <button type="button" class="btn btn-primary btn-lg btn-block" id="submit-i" onclick="generatePdf()">Download Report</button> -->
       <button type="button" class="btn btn-primary btn-lg btn-block" id="submit-c" onclick="generateNote()">Download Notes</button>
   
     </div>

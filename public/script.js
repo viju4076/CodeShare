@@ -182,8 +182,13 @@ function inputChange(){
 function closeMeeting()
 {
   console.log('close');
-  socket.emit('disconnect');
+  if(user==="Interviewer"){
+   generatePdf();
+   socket.emit('disconnect_all');
+  }
   window.location.href = "http://localhost:8000";
+
+  socket.emit('disconnect');
   
 
 }
@@ -303,6 +308,9 @@ document.addEventListener('keyup', function(event) {
 socket.on('cheating',cheater=>{
   console.log('caught cheating');
   swal(cheater, "opened a new tab", "warning");
+})
+socket.on('disconnect_all',()=>{
+  closeMeeting();
 })
 
 socket.on('editor-change', code=>{
@@ -716,7 +724,7 @@ socket.on('name',(name)=>{
 //meeting controls
 if(user==="Interviewer")
 {
-  document.getElementById('meeting_controls').textContent="End Interview";
+  document.getElementById('meeting_controls').textContent="End Interview and Download Report";
 }
 else
 {

@@ -177,7 +177,7 @@ doc.text(text4,20,90);
 rate_text=rate4+' out of 5';
 doc.text(rate_text,150,95);
 console.log(name);
-doc.save(output.pdf);
+doc.save(othersName);
 }
 
 /****************************************************************score section end ************************************/
