@@ -143,6 +143,10 @@ io.on('connection',socket=>{
             socket.on('screenId',(id)=>{
                 socket.to(roomId).emit('screenId',id); 
             })
+            socket.on('disconnect_all',()=>{
+                socket.to(roomId).emit('disconnect_all'); 
+  
+            })
             socket.on('otherScreenId',(id)=>{
                 socket.to(roomId).emit('otherScreenId',id); 
             })
