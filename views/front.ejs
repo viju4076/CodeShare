@@ -85,24 +85,23 @@
       <div class="modal-body">
        
         <span id="modal_data" style="color: red;">
+          <%if(user==="Interviewer"){%>
         Do you want to end the interview?
+        <%}else{%>
+         Do you want to leave the interview?
+         <%}%> 
         </span>
       </div>
-
       <!-- Modal footer -->
       <div class="modal-footer">
         <button type="button" id="modal_button" class="btn btn-danger" onclick="closeMeeting()">Yes</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
         
       </div>
-
     </div>
   </div>
 </div>
-
-
 <!-- .............question tab + compiler tab + chats........................................ -->
-
 <div class="container-fluid" id ="smallHeader">
 <div class="row container-fluid" >
     <div class="col-sm-3" style="background-color:rgba(0, 0, 0, 0.384); height: 100% color=white; padding-right: 3px;">
@@ -162,8 +161,6 @@
           
         </ul>
       <div class="tab-content">
-
-
         <div id="Feedback" class="tab-pane fade in active">
         
         <%- include('score.ejs') %>
@@ -188,10 +185,5 @@
        
      </div>
     
-
-
  </div>   
 </div>
-
-
-
