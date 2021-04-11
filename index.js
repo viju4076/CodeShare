@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+require('dotenv').config()
 const server = require('http').Server(app)
 const io = require('socket.io')(server)
 const {v4:uuidV4} = require('uuid')
@@ -15,8 +16,8 @@ var currentLanguage='cpp14';
 
 var program = {
     
-        clientId:"126b0727644f6a29367df1ac3f03588d",
-        clientSecret:"b7050cdede2a8e18aa25723dbc57865a14126a1ec601fb831fc41aae8eb81408",
+        clientId:process.env.CLIENTID,
+        clientSecret:process.env.CLIENTSECRET,
         script: "<?php echo \"hello\"; ?>",
         language: "cpp14",
         versionIndex:"0" ,
